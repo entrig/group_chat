@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:entrig_chat_example/screens/auth_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../supabase_table.dart';
@@ -226,18 +225,15 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(_userName != null ? 'Hi, $_userName!' : 'Groups'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.logout),
+            icon: const Icon(Icons.refresh),
             onPressed: () async {
-              await _supabase.auth.signOut();
-              if (mounted) {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) {
-                      return AuthScreen();
-                    },
-                  ),
-                );
-              }
+              // TODO:  Token register logic. Just for demo purpose
+
+              //
+
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text("Token Registered")));
             },
           ),
         ],
