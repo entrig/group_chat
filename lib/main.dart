@@ -1,3 +1,4 @@
+import 'package:entrig/entrig.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -12,6 +13,13 @@ void main() async {
   await Supabase.initialize(
     url: dotenv.env['SUPABASE_URL']!,
     anonKey: dotenv.env['SUPABASE_ANON_KEY']!,
+  );
+
+  await Entrig.init(
+    apiKey: dotenv.env['ENTRIG_API_KEY']!,
+    autoRegisterWithSupabaseAuth: AutoRegisterWithSupabaseAuth(
+      supabaseClient: Supabase.instance.client,
+    ),
   );
 
   runApp(const MyApp());

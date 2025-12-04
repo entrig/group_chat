@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:entrig_chat_example/push_notification_service.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import '../supabase_table.dart';
@@ -21,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
+    PushNotificationService.init(context);
     super.initState();
     _loadUserAndGroups();
   }
@@ -227,9 +229,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () async {
-              // TODO:  Token register logic. Just for demo purpose
-
-              //
+              await PushNotificationService.register();
 
               ScaffoldMessenger.of(
                 context,

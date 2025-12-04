@@ -1,5 +1,5 @@
 PODS:
-  - app_links (6.4.1):
+  - app_links (0.0.1):
     - Flutter
   - entrig (0.0.1):
     - Flutter
@@ -41,8 +41,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  app_links: 585674be3c6661708e6cd794ab4f39fb9d8356f9
-  entrig: d21d378159d9f00f34c4925d24cfb62af2c496fd
+  app_links: e70ca16b4b0f88253b3b3660200d4a10b4ea9795
+  entrig: dda86c7c3132eb3a08ccb686f39b6ec183978ce3
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
