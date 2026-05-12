@@ -213,6 +213,10 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Future<void> _signOut() async {
+    await _supabase.auth.signOut();
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -225,16 +229,8 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(_userName != null ? 'Hi, $_userName!' : 'Groups'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: () async {
-              // TODO:  Token register logic. Just for demo purpose
-
-              //
-
-              ScaffoldMessenger.of(
-                context,
-              ).showSnackBar(SnackBar(content: Text("Token Registered")));
-            },
+            icon: const Icon(Icons.logout),
+            onPressed: _signOut,
           ),
         ],
       ),
