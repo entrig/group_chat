@@ -1,5 +1,7 @@
 import Flutter
 import UIKit
+import UserNotifications
+import entrig
 
 @main
 @objc class AppDelegate: FlutterAppDelegate {
@@ -8,10 +10,32 @@ import UIKit
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         GeneratedPluginRegistrant.register(with: self)
+        UNUserNotificationCenter.current().delegate = self
+        EntrigPlugin.checkLaunchNotification(launchOptions)
+        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
 
+    override func application(_ application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+      EntrigPlugin.didRegisterForRemoteNotifications(deviceToken: deviceToken)
+    }
 
-    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-    }    
+    override func application(_ application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: Error) {
+      EntrigPlugin.didFailToRegisterForRemoteNotifications(error: error)
+    }
 
+    override func userNotificationCenter(_ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+      EntrigPlugin.willPresentNotification(notification)
+      completionHandler(EntrigPlugin.foregroundPresentationOptions())
+    }
 
+    override func userNotificationCenter(_ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void) {
+      EntrigPlugin.didReceiveNotification(response)
+      completionHandler()
+    }
 }

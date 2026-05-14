@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "entrig-flutter": {
+      "source": "entrig/entrig-skills",
+      "sourceType": "github",
+      "skillPath": "skills/entrig-flutter/SKILL.md",
+      "computedHash": "8a45a278749fb2f6c2b9372550dce9170196978082109f9ae8bb3c49b09283e4"
+    },
+    "entrig-mcp": {
+      "source": "entrig/entrig-skills",
+      "sourceType": "github",
+      "skillPath": "skills/entrig-mcp/SKILL.md",
+      "computedHash": "2fb61ccddc790595fec6db103c9ecb18a9403966ca7802c00ef7f5c5a0faf675"
+    }
+  }
+}
